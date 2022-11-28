@@ -15,13 +15,11 @@
             <th> Engine power</th>
             <th> Fuel type</th>
         </tr>
-        <tbody>
         <tr th:each="car : ${printCar}">
             <td th:text="${car.brand}">brand</td>
             <td th:text="${car.enginePower}">engine power</td>
             <td th:text="${car.fuelType}">fuel type</td>
         </tr>
-        </tbody>
     </table>
 </div>
 </body>

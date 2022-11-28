@@ -1,46 +1,58 @@
 package web.model;
 
+import java.util.Objects;
+
+
 public class Car {
-    private String brand;
-    private int enginePower;
-    private String fuelType;
+    private String model;
+    private int series;
+    private String color;
 
-    public Car(String brand, int enginePower, String fuelType) {
-        this.brand = brand;
-        this.enginePower = enginePower;
-        this.fuelType = fuelType;
+    public Car(String model, int series, String color) {
+        this.model = model;
+        this.series = series;
+        this.color = color;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getModel() {
+        return model;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setModel(String model) {
+        this.model = model;
     }
 
-    public int getEnginePower() {
-        return enginePower;
+    public int getSeries() {
+        return series;
     }
 
-    public void setEnginePower(int enginePower) {
-        this.enginePower = enginePower;
+    public void setSeries(int series) {
+        this.series = series;
     }
 
-    public String getFuelType() {
-        return fuelType;
+    public String getColor() {
+        return color;
     }
 
-    public void setFuelType(String fuelType) {
-        this.fuelType = fuelType;
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return series == car.series && Objects.equals(model, car.model) && Objects.equals(color, car.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, series, color);
     }
 
     @Override
     public String toString() {
-        return "Car{" +
-                "brand='" + brand + '\'' +
-                ", enginePower=" + enginePower +
-                ", fuelType='" + fuelType + '\'' +
-                '}';
+        return model + "  " + series + "  " + color;
     }
 }
