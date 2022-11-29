@@ -20,9 +20,9 @@ public class CarsController {
         this.serviceCar = serviceCar;
     }
 
-    @GetMapping("")
+    @GetMapping("/cars")
     public String getListOfCars(@RequestParam(value = "count", defaultValue = "5", required = false) int count, Model model) {
         model.addAttribute("list", serviceCar.getListOfCar(count, serviceCar.getFullListOfCar()));
-        return "viewsCar/cars";
+        return "cars";
     }
 }
